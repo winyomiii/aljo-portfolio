@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>My Portfolio</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  display: flex;
+  background-color: #000;
+  color: white;
+}
+
+/* Navigation */
+nav {
+  width: 200px;
+  background-color: #111;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.nav-header {
+  width: 100%;
+  height: 150px;
+  background-image: url("https://imgur.com/gallery/images-Dqy7YAU#4jk49yr");
+  background-size: cover;
+  background-position: center;
+}
+
+.nav-link {
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  border-top: 1px solid #444;
+  transition: background 0.3s;
+}
+
+.nav-link:hover {
+  background-color: #333;
+}
+
+.nav-link img {
+  width: 36px;
+  height: 36px;
+  margin-bottom: 5px;
+}
+
+.nav-link span {
+  font-size: 14px;
+}
+
+.nav-footer {
+  margin-top: auto;
+  padding: 15px 10px;
+  text-align: center;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.nav-footer p {
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+
+.content {
+  margin-left: 200px;
+  width: calc(100% - 200px);
+}
+
+section {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#home {
+  height: 150vh;
+  background-image: url("https://imgur.com/gallery/images-Dqy7YAU#cptFx7U");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+#home h1 {
+  font-size: 48px;
+}
+
+#home h2 {
+  font-size: 64px;
+  font-weight: bold;
+}
+
+#home p {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+#about, #contact {
+  background-color: #000;
+  color: white;
+}
+
+#about h1, #skills h1, #contact h1 {
+  margin-bottom: 10px;
+}
+
+#about hr,
+#skills hr {
+  width: 150px;
+  border: 1px solid white;
+  margin: 10px 0 20px;
+}
+
+#about p, #contact p {
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+/* Skills Section */
+#skills {
+  padding-top: 20px;
+}
+
+.skill-container {
+  max-width: 600px;
+}
+
+.skill-bar {
+  width: 100%;
+  background-color: #444;
+  margin: 10px 0 20px;
+  height: 20px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.skill-level {
+  height: 100%;
+  background-color: white;
+}
+
+#services {
+  background-color: #000;
+  color: white;
+  padding: 60px 40px;
+  text-align: center;
+}
+
+#services h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+#services p {
+  max-width: 700px;
+  margin: 0 auto 40px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.services-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.service-box {
+  background-color: #111;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 30px;
+  width: 280px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.1);
+}
+
+.service-box img {
+  width: 50px;
+  margin-bottom: 20px;
+}
+
+.service-box h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.service-box p {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+#samples {
+  background-color: #000;
+  color: white;
+  padding: 60px 40px;
+}
+
+#samples h1 {
+  margin-bottom: 10px;
+}
+
+#samples hr {
+  width: 150px;
+  border: 1px solid white;
+  margin-bottom: 20px;
+}
+
+#samples p {
+  text-align: justify;
+  max-width: 800px;
+  margin-bottom: 40px;
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.ppt-sample {
+  margin-top: 40px;
+}
+
+.ppt-heading {
+  max-width: 880px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.ppt-heading h2 {
+  font-size: 23px;
+  margin-bottom: 10px;
+}
+
+.ppt-heading hr {
+  width: 150px;
+  border: 1px solid white;
+  margin-bottom: 20px;
+}
+
+.ppt-image {
+  display: block;
+  margin: 0 auto;
+  max-width: 880px;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid #444;
+}
+
+.button-wrapper {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.view-button {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #444;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.view-button:hover {
+  background-color: #666;
+}
+
+
+.cover-image {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.cover-image h3 {
+  margin-bottom: 10px;
+}
+
+.cover-image img {
+  width: 100%;
+  max-width: 880px;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid #444;
+}
+
+.samples-collapsibles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+}
+
+.sample-column {
+  flex: 1;
+  min-width: 300px;
+  max-width: 400px;
+}
+
+.collapsible {
+  background-color: #111;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 16px;
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+.collapsible:hover {
+  background-color: #222;
+}
+
+.collapsible-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out;
+}
+
+.collapsible-content img {
+  width: 100%;
+  margin: 10px 0;
+  border: 1px solid #555;
+  border-radius: 5px;
+}
+
+.collapsible .arrow {
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 5px;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  transition: transform 0.3s ease;
+}
+
+.collapsible.active .arrow {
+  transform: translateY(-50%) rotate(-135deg);
+}
+
+.section-divider {
+  border: none;
+  height: 1px;
+  background-color: #555;
+  margin: 10px auto;
+  width: 80%;
+}
+
+#video-edits {
+  background-color: #000;
+  color: white;
+  padding: 60px 40px;
+  text-align: center;
+}
+
+#video-edits .section-title {
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+
+.video-container video {
+  width: 90%;
+  max-width: 800px;
+  border: 1px solid #444;
+  border-radius: 8px;
+}
+
+.section-divider {
+  border: none;
+  height: 1px;
+  background-color: #555;
+  margin: 10px auto;
+  width: 80%;
+}
+
+#gaming-showcase {
+  padding: 60px 40px;
+  background-color: #000;
+  color: white;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+.game-section {
+  max-width: 880px;
+  margin: 0 auto 60px;
+}
+
+.game-section h2 {
+  font-size: 23px;
+  margin-bottom: 10px;
+  margin-left: 0;
+}
+
+.game-section hr {
+  width: 150px;
+  border: 1px solid white;
+  margin-bottom: 20px;
+}
+
+.game-section video {
+  width: 100%;
+  border: 1px solid #444;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.plus-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.plusButton {
+  --plus_sideLength: 2.5rem;
+  --plus_topRightTriangleSideLength: 0.9rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid white;
+  width: var(--plus_sideLength);
+  height: var(--plus_sideLength);
+  background-color: #000000;
+  overflow: hidden;
+}
+
+.plusButton::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-width: 0 var(--plus_topRightTriangleSideLength) var(--plus_topRightTriangleSideLength) 0;
+  border-style: solid;
+  border-color: transparent white transparent transparent;
+  transition: 0.2s ease-in-out;
+}
+
+.plusButton:hover {
+  cursor: pointer;
+}
+
+.plusButton:hover::before,
+.plusButton:focus-visible::before {
+  --plus_topRightTriangleSideLength: calc(var(--plus_sideLength) * 2);
+}
+
+.plusButton > .plusIcon {
+  fill: white;
+  width: calc(var(--plus_sideLength) * 0.7);
+  height: calc(var(--plus_sideLength) * 0.7);
+  z-index: 1;
+  transition: 0.2s ease-in-out;
+}
+
+.plusButton:hover > .plusIcon,
+.plusButton:focus-visible > .plusIcon {
+  fill: black;
+  transform: rotate(180deg);
+}
+
+.contact-section {
+  padding: 60px 40px;
+  color: #fff;
+}
+
+.section-divider {
+  border: none;
+  height: 1px;
+  background-color: #555;
+  margin: 20px auto 40px;
+  width: 80%;
+}
+
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: space-between;
+}
+
+.contact-left,
+.contact-right {
+  flex: 1;
+  min-width: 280px;
+}
+
+.contact-left h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.contact-left h1 strong {
+  font-weight: 800;
+}
+
+.contact-left p {
+  margin-bottom: 30px;
+  line-height: 1.6;
+  color: #ccc;
+}
+
+.contact-right h4 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.social-icons img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  transition: transform 0.3s;
+}
+
+.social-icons a:hover img {
+  transform: scale(1.1);
+}
+
+.contact-info h5 {
+  font-size: 12px;
+  margin-top: 20px;
+  letter-spacing: 1px;
+  font-weight: 600;
+  color: #aaa;
+}
+
+.contact-info p {
+  margin: 5px 0;
+}
+
+.socials-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.socials-header h4 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.footer {
+  text-align: center;
+  padding: 20px 0;
+  color: #ffffff; 
+  font-size: 14px;
+  background-color: #474747; 
+}
+
+button {
+  width: 140px;
+  height: 56px;
+  overflow: hidden;
+  border: none;
+  color: #fff;
+  background: none;
+  position: relative;
+  padding-bottom: 2em;
+  cursor: pointer;
+}
+
+button > div,
+button > svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+button:before {
+  content: "";
+  position: absolute;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  background: currentColor;
+  transition: transform 0.25s ease-out;
+}
+
+button:hover:before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+button .clone > *,
+button .text > * {
+  opacity: 1;
+  font-size: 1.3rem;
+  transition: 0.2s;
+  margin-left: 4px;
+}
+
+button .clone > * {
+  transform: translateY(60px);
+}
+
+button:hover .clone > * {
+  opacity: 1;
+  transform: translateY(0px);
+  transition: all 0.2s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+}
+
+button:hover .text > * {
+  opacity: 1;
+  transform: translateY(-60px);
+  transition: all 0.2s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+}
+
+button:hover .clone > :nth-child(1) {
+  transition-delay: 0.15s;
+}
+
+button:hover .clone > :nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+button:hover .clone > :nth-child(3) {
+  transition-delay: 0.25s;
+}
+
+button:hover .clone > :nth-child(4) {
+  transition-delay: 0.3s;
+}
+
+button svg {
+  width: 20px;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%) rotate(-50deg);
+  transition: 0.2s ease-out;
+}
+
+button:hover svg {
+  transform: translateY(-50%) rotate(-90deg);
+}
+
+.back-to-top-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px 0; 
+}
+
+.contact-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 30px;
+}
+
+.contact-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.resume-button {
+  color: rgba(255, 255, 255, 0.692);
+  padding: 10px 15px;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.397);
+  background: rgba(255, 255, 255, 0.068);
+  font-size: 0.9rem;
+  font-weight: 600;
+  gap: 8px;
+  border-radius: 5px;
+  margin: 0;
+  transition: 0.2s;
+  border: 1px solid transparent;
+  text-decoration: none;
+}
+
+.resume-button:hover {
+  border-color: rgba(255, 255, 255, 0.623);
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.144),
+    rgba(255, 255, 255, 0.247),
+    rgba(255, 255, 255, 0.39)
+  );
+  box-shadow: 0 6px rgba(255, 255, 255, 0.623);
+  transform: translateY(-6px);
+}
+
+.resume-button:active {
+  transform: translateY(2px);
+  box-shadow: none;
+}
+</style>
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+</head>
+<body>
+<nav>
+<div class="nav-header" style="background-image: url('https://i.imgur.com/4jk49yr.png');"></div>
+<a href="#home" class="nav-link">
+      <img src="https://i.imgur.com/uG3fK9m.png" alt="Home Icon" />
+      <span>Home</span>
+    </a>
+<a href="#about" class="nav-link">
+      <img src="https://i.imgur.com/k6ENL0q.png" alt="About Icon" />
+      <span>About</span>
+    </a>
+<a href="#contact" class="nav-link">
+      <img src="https://i.imgur.com/GlfkjVs.png" alt="Contact Icon" />
+      <span>Contact</span>
+    </a>
+<div class="nav-footer">
+<p>© 2025 All Rights Reserved By Aljo Sorrida</p>
+</div>
+</nav>
+<div class="content">
+<section id="home" style="background-image: url('https://i.imgur.com/cptFx7U.jpg');">
+<h1>Yo, I'm</h1>
+<h2>Aljo Sorrida</h2>
+<p>and this is my resume</p>
+</section>
+<section data-aos="fade" id="about">
+<h1>My Name</h1>
+<hr/>
+<p>My name is Aljo Levi Sorrida, a full time student at STI Pasay EDSA, currently taking up Information Technology. I do graphic design and video editing, and I’m very familiar with everything Canva has to offer; from creating social media content to branding and presentation materials.</p>
+<p>Outside of creative work, I’m also a gamer who enjoys playing Valorant and League of Legends. Gaming has helped me develop strong teamwork, focus, and quick decision-making skills, which I also apply to my studies and projects.</p>
+<p>I’m always open to learning new things, improving my skills, and working with others to create something meaningful and well-crafted.</p>
+</section>
+<section data-aos="fade" id="skills">
+<h1>My Skills</h1>
+<hr/>
+<div class="skill-container">
+<label>Programming</label>
+<div class="skill-bar">
+<div class="skill-level" style="width: 50%;"></div>
+</div>
+<label>Editing</label>
+<div class="skill-bar">
+<div class="skill-level" style="width: 60%;"></div>
+</div>
+<label>Graphic Designing</label>
+<div class="skill-bar">
+<div class="skill-level" style="width: 70%;"></div>
+</div>
+</div>
+</section>
+<section class="services-section" data-aos="fade-up" id="services">
+<h1>Offered Services</h1>
+<p>
+        Graphic Designing, Video Editing, and Gaming have been a central part of my college journey. Through these creative and skill-driven activities, I've developed both technical and strategic thinking that I now apply professionally.
+      </p>
+<div class="services-wrapper">
+<div class="service-box" data-aos="fade-up">
+<img src="https://i.imgur.com/ErHvcZ8.png" alt="Graphic Design Icon" />
+<h3>Graphic Design</h3>
+<p>
+    Creating visually appealing and brand-consistent graphics for social media, marketing, and presentations using tools like Canva and Photoshop.
+  </p>
+<div class="plus-wrapper">
+<a class="plusButton" href="#samples" tabindex="0">
+<svg class="plusIcon" viewbox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+<g>
+<path d="M13.75 23.75V16.25H6.25V13.75H13.75V6.25H16.25V13.75H23.75V16.25H16.25V23.75H13.75Z"></path>
+</g>
+</svg>
+</a>
+</div>
+</div>
+<div class="service-box" data-aos="fade-up" data-aos-delay="100">
+<img src="https://i.imgur.com/Lrse0M4.png" alt="Video Editing Icon" />
+<h3>Video Edits</h3>
+<p>
+    Producing engaging content with smooth transitions, subtitles, and synced audio using tools like CapCut, After Effects, and Canva.
+  </p>
+<div class="plus-wrapper">
+<a class="plusButton" href="#video-edits" tabindex="0">
+<svg class="plusIcon" viewbox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+<g>
+<path d="M13.75 23.75V16.25H6.25V13.75H13.75V6.25H16.25V13.75H23.75V16.25H16.25V23.75H13.75Z"></path>
+</g>
+</svg>
+</a>
+</div>
+</div>
+<div class="service-box" data-aos="fade-up" data-aos-delay="200">
+<img src="https://i.imgur.com/2XCFpzb.png" alt="Gaming Icon" />
+<h3>Pilot Gaming</h3>
+<p>
+    Skilled in piloting accounts for Valorant and League of Legends, boosting ranks and mastery with sharp decision-making and adaptable play.
+  </p>
+<div class="plus-wrapper">
+<a class="plusButton" href="#gaming-showcase" tabindex="0">
+<svg class="plusIcon" viewbox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+<g>
+<path d="M13.75 23.75V16.25H6.25V13.75H13.75V6.25H16.25V13.75H23.75V16.25H16.25V23.75H13.75Z"></path>
+</g>
+</svg>
+</a>
+</div>
+</div>
+</div>
+</section>
+<section data-aos="fade-up" id="samples">
+<h1>Featured Samples</h1>
+<hr/>
+<p>
+    This section features my creative work in Graphic Design, Video Editing, and Gaming; highlighting my skills in visual storytelling, design, and content creation through eBook covers, infographics, edits, and gameplay showcases.
+  </p>
+<h2 class="section-subtitle">Graphic Designs</h2>
+<div class="cover-image">
+<h3>Cover Picture Sample</h3>
+<img src="https://i.imgur.com/MSinnAF.png" alt="Cover Sample" />
+</div>
+<div class="samples-collapsibles">
+<div class="sample-column">
+<button class="collapsible">eBook Covers <span class="arrow"></span></button>
+<div class="collapsible-content">
+<img src="https://i.imgur.com/BhIp9Tm.png" alt="eBook 1" />
+<img src="https://i.imgur.com/I7MYvxf.png" alt="eBook 2" />
+</div>
+</div>
+<div class="sample-column">
+<button class="collapsible">Infographics <span class="arrow"></span></button>
+<div class="collapsible-content">
+<img src="https://i.imgur.com/umFP4We.png" alt="Infographic 1" />
+<img src="https://i.imgur.com/t4DQF3m.png" alt="Infographic 2" />
+</div>
+</div>
+</div>
+<div class="ppt-sample">
+<div class="ppt-heading">
+<h2>PowerPoint Presentation</h2>
+<hr/>
+</div>
+<img src="https://i.imgur.com/TPpfEWf.png" alt="PowerPoint Sample" class="ppt-image" />
+<div class="button-wrapper">
+<a class="view-button" href="https://www.canva.com/design/DAGgF4YrMis/wLdrfLQySVyFaEBea_O4Ww/view?utm_content=DAGgF4YrMis&amp;utm_campaign=designshare&amp;utm_medium=link2&amp;utm_source=uniquelinks&amp;utlId=h7cb3d0dacc" rel="noopener noreferrer" target="_blank">
+      View Live Design
+    </a>
+</div>
+</div>
+</section>
+<hr class="section-divider"/>
+<section id="video-edits">
+<h1 class="section-title">Video Edits</h1>
+<div class="video-container">
+<video controls poster="https://i.imgur.com/FrTv2vP.png">
+<source src="https://i.imgur.com/qG0qdL1.mp4" type="video/mp4" />
+
+    </video>
+</div>
+</section>
+<hr class="section-divider"/>
+<section id="gaming-showcase">
+<h1 class="section-title">Gaming Showcase</h1>
+<div class="game-section">
+<h2>Valorant Clutches</h2>
+<hr/>
+<video controls="" width="100%">
+<source src="https://i.imgur.com/OVJlxAX.mp4" type="video/mp4" />
+
+    </source></video>
+<video controls="" width="100%">
+<source src="https://i.imgur.com/q2q2CVV.mp4" type="video/mp4" />
+
+    </video>
+</div>
+<div class="game-section">
+<h2>League of Legends Clutches</h2>
+<hr/>
+<video controls="" width="100%">
+<source src="https://i.imgur.com/8h9VFXz.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+</div>
+<div class="back-to-top-wrapper">
+<button onclick="document.getElementById('services').scrollIntoView({ behavior: 'smooth' })">
+<div class="text">
+<span>Back</span>
+<span>to</span>
+<span>top</span>
+</div>
+<div class="clone">
+<span>Back</span>
+<span>to</span>
+<span>top</span>
+</div>
+<svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="20px" xmlns="http://www.w3.org/2000/svg">
+<path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+</section>
+<section class="contact-section" id="contact">
+<hr class="section-divider"/>
+<div class="contact-container">
+<div class="contact-left">
+<h1>Get <strong>In Touch</strong></h1>
+<p>
+        Feel free to reach out to me through email or connect with me on my social media platforms; Facebook, X (formerly Twitter), Instagram, and even Discord. I'm always open to collaborating on exciting projects, sharing creative ideas, or simply having a conversation. Let’s connect and create something amazing together!
+      </p>
+</div>
+<div class="contact-right">
+<h4>FOLLOW ME ON MY SOCIALS!</h4>
+<br/>
+<div class="social-icons">
+            <a href="https://www.facebook.com/Aljols.9/" target="_blank"><img src="https://i.imgur.com/XvYxp90.png" alt="Facebook" /></a>
+            <a href="https://x.com/allesorr" target="_blank"><img src="https://i.imgur.com/CXOhaby.png" alt="Twitter" /></a>
+            <a href="https://www.instagram.com/canonical_a/" target="_blank"><img src="https://i.imgur.com/IETXU9Z.png" alt="Instagram" /></a>
+            <a href="https://discordapp.com/users/Allesor" target="_blank"><img src="https://i.imgur.com/ort5kux.png" alt="Discord" /></a>
+          </div>
+<div class="contact-item">
+<p class="contact-label">CHECK MY RESUME HERE!</p>
+<a class="resume-button" download="" href="https://drive.google.com/file/d/1dwXjgCnl8pHJ4RLC7Avx7OuUdAIgJT7L/view?usp=drive_link">
+<svg height="32" viewbox="0 0 256 256" width="38" xmlns="http://www.w3.org/2000/svg">
+<path d="M74.34 85.66a8 8 0 0 1 11.32-11.32L120 108.69V24a8 8 0 0 1 16 0v84.69l34.34-34.35a8 8 0 0 1 11.32 11.32l-48 48a8 8 0 0 1-11.32 0ZM240 136v64a16 16 0 0 1-16 16H32a16 16 0 0 1-16-16v-64a16 16 0 0 1 16-16h52.4a4 4 0 0 1 2.83 1.17L111 145a24 24 0 0 0 34 0l23.8-23.8a4 4 0 0 1 2.8-1.2H224a16 16 0 0 1 16 16m-40 32a12 12 0 1 0-12 12a12 12 0 0 0 12-12" fill="currentColor"></path>
+</svg>
+<span>Download</span>
+</a>
+</div>
+<div class="contact-info">
+<h5>EMAIL</h5>
+<p>itsojla@gmail.com</p>
+<h5>PHONE</h5>
+<p>+64 962 342 0531</p>
+</div>
+</div>
+</div>
+</section>
+<footer class="footer">
+<p>© 2025 All Rights Reserved By Aljo Sorrida</p>
+</footer>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+AOS.init({
+  duration: 800,
+  once: true,
+});
+
+document.querySelectorAll('.collapsible').forEach(button => {
+  button.addEventListener('click', () => {
+    const content = button.nextElementSibling;
+
+    button.classList.toggle('active');
+
+    if (content.style.maxHeight) {
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + 'px';
+    }
+  });
+});
+
+</script>
+</body>
+</html>
